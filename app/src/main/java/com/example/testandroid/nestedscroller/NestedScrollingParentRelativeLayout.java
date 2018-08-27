@@ -59,7 +59,7 @@ public class NestedScrollingParentRelativeLayout extends RelativeLayout implemen
                 consumed[1]=dy;
                 scrollBy(0,dy);
             }
-
+ 
         }else {
             //向下滑动
             if(childViewHeight <= minHeight){
