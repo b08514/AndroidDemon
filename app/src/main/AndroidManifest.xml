@@ -23,6 +23,12 @@
         <activity android:name=".nestedscroller.NestedScrollerActivity">
 
         </activity>
+        <activity android:name=".sysnestedscrollerview.NestedScrollerViewActivity">
+
+        </activity>
+
+        <activity android:name=".proxytest.ProxyTestActivity"/>
+        <activity android:name=".lifecycletest.LifeCycleTestActivity"/>
     </application>
 
 </manifest>

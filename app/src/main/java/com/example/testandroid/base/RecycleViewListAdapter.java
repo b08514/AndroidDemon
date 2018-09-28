@@ -1,6 +1,7 @@
 package com.example.testandroid.base;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import java.util.ArrayList;
 
 public class RecycleViewListAdapter extends RecyclerView.Adapter<RecycleViewListAdapter.MyViewHolder> {
 
+    private static final String TAG = "RecycleViewListAdapter";
     private static int MAX_COUNT = 40;
     private ArrayList<String> mData = new ArrayList<>();
 
@@ -34,6 +36,9 @@ public class RecycleViewListAdapter extends RecyclerView.Adapter<RecycleViewList
         if (holder != null){
             holder.mItmeText.setText(mData.get(position));
         }
+
+        Log.d(TAG,"onBindViewHolder position = "+position);
+
     }
 
     @Override
