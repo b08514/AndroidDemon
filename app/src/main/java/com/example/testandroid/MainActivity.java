@@ -1,6 +1,10 @@
 package com.example.testandroid;
 
 import android.content.Intent;
+import android.os.Build;
+import android.os.Debug;
+import android.os.StrictMode;
+import android.os.Trace;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -22,6 +26,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView mLifecycle;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        if(Build.VERSION.SDK_INT > Build.VERSION_CODES.JELLY_BEAN_MR2){
+            Trace.beginSection("TestMainActivity");
+        }
+        Debug.startMethodTracing("zzzzzz");
+        StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
+                .penaltyLog()
+                .build());
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mScrolerTest = findViewById(R.id.test_list_scroller);
@@ -34,6 +45,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mSysNestedScrollerView.setOnClickListener(this);
         mProxyTest.setOnClickListener(this);
         mLifecycle.setOnClickListener(this);
+        if(Build.VERSION.SDK_INT > Build.VERSION_CODES.JELLY_BEAN_MR2){
+            Trace.endSection();
+        }
+        Debug.stopMethodTracing();
+
     }
 
     private void testDoubleEquel(){

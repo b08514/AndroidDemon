@@ -11,6 +11,10 @@ import com.example.testandroid.R;
 
 import java.util.ArrayList;
 
+import hugo.weaving.DebugLog;
+
+
+@DebugLog
 public class RecycleViewListAdapter extends RecyclerView.Adapter<RecycleViewListAdapter.MyViewHolder> {
 
     private static final String TAG = "RecycleViewListAdapter";
